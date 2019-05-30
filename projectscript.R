@@ -10,14 +10,18 @@ library(openssl)
 library(rgeos)
 library(rgbif)
 
-#Still working on the script but for now the script runs a specified scientific name.
-#file = "scientificnames.txt"
-#input = read.csv("scientificnames.txt")
-#con = file(description=file,open="r")
+input = read.csv("scientificnames.txt",header=F)
+
+# read the column as vector
+
+col <- input[[1]]
 
 
-#for (i in input){
-	#print(i)
-#occ_search(scientificName = "i")}
 
-occ_search(scientificName = "Oplegnathus woodwardi")
+#Run the funtion for each species 
+
+for (i in col){
+
+  print(occ_search(scientificName =i))
+
+}
